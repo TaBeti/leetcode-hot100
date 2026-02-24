@@ -5,27 +5,28 @@ import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-class MyQueue {
-    Deque<Integer> deque = new LinkedList<>();
-
-    void poll(int val) {
-        if (!deque.isEmpty() && val == deque.peek()) deque.poll();
-    }
-
-    void add(int val) {
-        while (!deque.isEmpty() && val > deque.getLast()) deque.removeLast();
-        deque.add(val);
-    }
-
-    int peek() {
-        return deque.peek();
-    }
-}
 
 /**
  * 滑动窗口最大值
  */
 public class maxSlidingWindow {
+    public static class MyQueue {
+        Deque<Integer> deque = new LinkedList<>();
+
+        void poll(int val) {
+            if (!deque.isEmpty() && val == deque.peek()) deque.poll();
+        }
+
+        void add(int val) {
+            while (!deque.isEmpty() && val > deque.getLast()) deque.removeLast();
+            deque.add(val);
+        }
+
+        int peek() {
+            return deque.peek();
+        }
+    }
+
     private static int[] maxSlidingWindow(int[] nums, int k) {
         int len = nums.length - k + 1;
         int[] res = new int[len];
