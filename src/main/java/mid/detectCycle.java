@@ -1,59 +1,59 @@
-package easy;
+package mid;
 
 import java.util.Scanner;
 
 /**
- * 环形链表
+ * 环形链表II
  */
-public class hasCycle {
+public class detectCycle {
     private static class ListNode {
         int val;
         ListNode next;
         ListNode() {}
         ListNode(int val) {
             this.val = val;
-        }
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
+            next = null;
         }
     }
 
-    private static boolean hasCycle(ListNode head) {
+    private static ListNode detectCycle(ListNode head) {
         ListNode slow = head, fast = head;
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
-            if (slow == fast) return true;
+            if (slow == fast) {
+                while (slow != head) {
+                    head = head.next;
+                    slow = slow.next;
+                }
+                return slow;
+            }
         }
-        return false;
+        return null;
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String[] split = sc.nextLine().split(" ");
-        //1.构建链表
         ListNode head = new ListNode(Integer.parseInt(split[0]));
         ListNode tmp = head;
         for (int i = 1; i < split.length; i++) {
             tmp.next = new ListNode(Integer.parseInt(split[i]));
             tmp = tmp.next;
         }
-        //2.获取环的位置并构建环
         int pos = sc.nextInt();
         if (pos != -1) {
             ListNode lastNode = head;
-            //先找到末尾节点
             while (lastNode.next != null) {
                 lastNode = lastNode.next;
             }
-            //再找到环的位置，然后让末尾节点的next指向环的入口节点
             ListNode cycleNode = head;
             for (int i = 0; i < pos; i++) {
                 cycleNode = cycleNode.next;
             }
             lastNode.next = cycleNode;
         }
-        System.out.println(hasCycle(head));
+        ListNode res = detectCycle(head);
+        System.out.println(res != null ? res.val : null);
     }
 }
