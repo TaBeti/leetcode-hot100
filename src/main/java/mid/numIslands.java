@@ -2,6 +2,9 @@ package mid;
 
 import java.util.Scanner;
 
+/**
+ * 岛屿数量
+ */
 public class numIslands {
     private static int[][] dir = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 

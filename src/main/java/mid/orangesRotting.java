@@ -4,6 +4,9 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
+/**
+ * 腐烂的橘子
+ */
 public class orangesRotting {
     private static int[][] dir = {{0, -1}, {0, 1}, {-1, 0}, {1, 0}};
 

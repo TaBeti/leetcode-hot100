@@ -4,6 +4,9 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
+/**
+ * 二叉树的最大路径和
+ */
 public class maxPathSum {
     private static class TreeNode {
         int val;

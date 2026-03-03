@@ -1,5 +1,8 @@
 package mid;
 
+/**
+ * 实现Trie（前缀树）
+ */
 public class Trie {
     private boolean isEnd;
     private Trie[] next;

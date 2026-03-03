@@ -5,6 +5,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * 课程表
+ */
 public class canFinish {
     private static boolean dfs(int x, List<Integer>[] g, int[] colors) {
         colors[x] = 1;

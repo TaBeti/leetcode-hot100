@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * 全排列
+ */
 public class permute {
     private static List<List<Integer>> res = new ArrayList<>();
     private static List<Integer> path = new ArrayList<>();
