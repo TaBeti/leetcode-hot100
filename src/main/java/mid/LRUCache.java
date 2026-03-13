@@ -10,13 +10,13 @@ public class LRUCache {
     private static class Node {
         int key, value;
         Node prev, next;
-        Node(int k, int v) {
+        Node (int k, int v) {
             key = k;
             value = v;
         }
     }
 
-    private int capacity = 0;
+    private int capacity;
     private Node dummy = new Node(0, 0);
     private Map<Integer, Node> keyToNode = new HashMap<>();
 
@@ -26,20 +26,23 @@ public class LRUCache {
         dummy.next = dummy;
     }
 
-    private int get(int key) {
+    public int get(int key) {
         Node node = getNode(key);
         return node != null ? node.value : -1;
     }
 
-    private void put(int key, int value) {
+    public void put(int key, int value) {
         Node node = getNode(key);
+        //node存在就更新值
         if (node != null) {
             node.value = value;
             return;
         }
+        //node不存在就新建、然后放到 keyToNode里面并放到最上面
         node = new Node(key, value);
         keyToNode.put(key, node);
         pushFront(node);
+        //插入还需要判断是否超出容量
         if (keyToNode.size() > capacity) {
             Node backNode = dummy.prev;
             keyToNode.remove(backNode.key);
