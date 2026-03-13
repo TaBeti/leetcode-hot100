@@ -12,8 +12,8 @@ public class subarraySum {
         Map<Integer, Integer> map = new HashMap<>();
         map.put(0, 1);
         int res = 0, pre = 0;
-        for (int i = 0; i < nums.length; i++) {
-            pre += nums[i];
+        for (int num : nums) {
+            pre += num;
             if (map.containsKey(pre - k)) res += map.get(pre - k);
             map.put(pre, map.getOrDefault(pre, 0) + 1);
         }
@@ -21,15 +21,13 @@ public class subarraySum {
     }
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        sc.nextLine();
-        int[] nums = new int[n];
-        String[] inputNums = sc.nextLine().split(" ");
-        int k = sc.nextInt();
-        for (int i = 0; i < n; i++) {
-            nums[i] = Integer.parseInt(inputNums[i]);
+        Scanner sc =  new Scanner(System.in);
+        String[] split = sc.nextLine().split(" ");
+        int[] nums = new int[split.length];
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = Integer.parseInt(split[i]);
         }
+        int k = sc.nextInt();
         System.out.println(subarraySum(nums, k));
     }
 }
