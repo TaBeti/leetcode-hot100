@@ -9,7 +9,7 @@ import java.util.Set;
  */
 public class longestConsecutive {
     private static int longestConsecutive(int[] nums) {
-        Set<Integer> set = new HashSet<>();
+        HashSet<Integer> set = new HashSet<>();
         for (int num : nums) set.add(num);
         int res = 0, seqLen = 0;
         for (int num : set) {
@@ -24,12 +24,10 @@ public class longestConsecutive {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        sc.nextLine();
-        int[] nums = new int[n];
-        String[] inputNums = sc.nextLine().split(" ");
-        for (int i = 0; i < n; i++) {
-            nums[i] = Integer.parseInt(inputNums[i]);
+        String[] split = sc.nextLine().split(" ");
+        int[] nums = new int[split.length];
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = Integer.parseInt(split[i]);
         }
         System.out.println(longestConsecutive(nums));
     }
