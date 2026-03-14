@@ -20,10 +20,12 @@ public class reverseKGroup {
     }
 
     private static ListNode reverseKGroup(ListNode head, int k) {
+        //统计链表节点个数
         int n = 0;
         for (ListNode cur = head; cur != null; cur = cur.next) n++;
         ListNode dummy = new ListNode(0, head);
         ListNode p0 = dummy, cur = head, pre = null;
+        //k个一组循环
         for (; n >= k; n -= k) {
             for (int i = 0; i < k; i++) {
                 ListNode tmp = cur.next;
