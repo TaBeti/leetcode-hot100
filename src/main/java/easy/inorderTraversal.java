@@ -8,8 +8,7 @@ import java.util.*;
 public class inorderTraversal {
     private static class TreeNode {
         int val;
-        TreeNode left;
-        TreeNode right;
+        TreeNode left, right;
         TreeNode() {}
         TreeNode(int val) {
             this.val = val;
@@ -21,10 +20,8 @@ public class inorderTraversal {
         }
     }
 
-    private static List<Integer> res = new ArrayList<>();
-
     private static List<Integer> inorderTraversal(TreeNode root) {
-        //traversal(root);
+        List<Integer> res = new ArrayList<>();
         if (root == null) return res;
         TreeNode cur = root;
         Stack<TreeNode> stack = new Stack<>();
@@ -39,13 +36,6 @@ public class inorderTraversal {
             }
         }
         return res;
-    }
-
-    private static void traversal(TreeNode node) {
-        if (node == null) return;
-        traversal(node.left);
-        res.add(node.val);
-        traversal(node.right);
     }
 
     private static TreeNode buildTree(String[] nodes) {
@@ -76,7 +66,6 @@ public class inorderTraversal {
         Scanner sc = new Scanner(System.in);
         String[] split = sc.nextLine().split(" ");
         TreeNode root = buildTree(split);
-        List<Integer> res = inorderTraversal(root);
-        System.out.println(res);
+        System.out.println(inorderTraversal(root));
     }
 }
