@@ -1,5 +1,6 @@
 package easy;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -25,15 +26,12 @@ public class twoSum {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        sc.nextLine();
-        int[] nums = new int[n];
-        String[] inputNums = sc.nextLine().split(" ");
-        for (int i = 0; i < n; i++) {
-            nums[i] = Integer.parseInt(inputNums[i]);
+        String[] split = sc.nextLine().split(" ");
+        int[] nums = new int[split.length];
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = Integer.parseInt(split[i]);
         }
         int target = sc.nextInt();
-        int[] res = twoSum(nums, target);
-        System.out.println(res[0] + " " + res[1]);
+        System.out.println(Arrays.toString(twoSum(nums, target)));
     }
 }
