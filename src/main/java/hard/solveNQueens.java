@@ -9,18 +9,18 @@ import java.util.Scanner;
  * N皇后
  */
 public class solveNQueens {
-    private static List<List<String>> res = new ArrayList<>();
+    private static List<List<Integer>> res = new ArrayList<>();
 
-    private static List<List<String>> solveNQueens(int n) {
+    private static List<List<Integer>> solveNQueens(int n) {
         char[][] chessboard = new char[n][n];
         for (char[] c : chessboard) Arrays.fill(c, '.');
         backtracking(n, 0, chessboard);
         return res;
     }
 
-    private static List Array2List(char[][] chessboard) {
+    private static List Array2List(char[][] chessborad) {
         List<String> list = new ArrayList<>();
-        for (char[] c : chessboard) list.add(String.copyValueOf(c));
+        for (char[] c : chessborad) list.add(String.copyValueOf(c));
         return list;
     }
 
