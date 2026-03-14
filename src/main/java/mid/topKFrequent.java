@@ -8,10 +8,8 @@ import java.util.*;
 public class topKFrequent {
     private static int[] topKFrequent(int[] nums, int k) {
         Map<Integer, Integer> map = new HashMap<>();
-        for (int num : nums) {
-            if (map.containsKey(num)) map.put(num, map.get(num) + 1);
-            else map.put(num, 1);
-        }
+        for (int num : nums) map.put(num, map.getOrDefault(num, 0) + 1);
+        //使用小根堆存储
         PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> map.get(a) - map.get(b));
         for (Integer key : map.keySet()) {
             if (pq.size() < k) pq.add(key);
@@ -21,9 +19,9 @@ public class topKFrequent {
             }
         }
         int[] res = new int[k];
-        int index = 0;
+        int idx = 0;
         while (!pq.isEmpty()) {
-            res[index++] = pq.remove();
+            res[idx++] = pq.remove();
         }
         return res;
     }
