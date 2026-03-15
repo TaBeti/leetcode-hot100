@@ -16,13 +16,6 @@ public class partition {
         return res;
     }
 
-    private static boolean isPalindrome(String s, int start, int end) {
-        for (int i = start, j = end; i < j; i++, j--) {
-            if (s.charAt(i) != s.charAt(j)) return false;
-        }
-        return true;
-    }
-
     private static void backtracking(String s, int startIndex) {
         if (startIndex >= s.length()) {
             res.add(new ArrayList<>(path));
@@ -37,6 +30,13 @@ public class partition {
             backtracking(s, i + 1);
             path.remove(path.size() - 1);
         }
+    }
+
+    private static boolean isPalindrome(String s, int start, int end) {
+        for (int i = start, j = end; i < j; i++, j--) {
+            if (s.charAt(i) != s.charAt(j)) return false;
+        }
+        return true;
     }
 
     public static void main(String[] args) {
