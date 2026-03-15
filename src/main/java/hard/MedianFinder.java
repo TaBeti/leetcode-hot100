@@ -6,7 +6,9 @@ import java.util.PriorityQueue;
  * 数据流的中位数
  */
 public class MedianFinder {
+    //左边数组找最大值，构建大根堆
     private final PriorityQueue<Integer> left = new PriorityQueue<>((a, b) -> b - a);
+    //右边数组找最小值，构建小根堆
     private final PriorityQueue<Integer> right = new PriorityQueue<>();
 
     public MedianFinder() {}
