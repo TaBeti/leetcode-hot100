@@ -46,7 +46,7 @@ public class levelOrder {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         int index = 1;
-        while (!queue.isEmpty() && index < nodes.length) {
+        while (index < nodes.length && !queue.isEmpty()) {
             TreeNode cur = queue.poll();
             if (index < nodes.length && !nodes[index].equals("null")) {
                 cur.left = new TreeNode(Integer.parseInt(nodes[index]));
@@ -66,7 +66,6 @@ public class levelOrder {
         Scanner sc = new Scanner(System.in);
         String[] split = sc.nextLine().split(" ");
         TreeNode root = buildTree(split);
-        List<List<Integer>> res = levelOrder(root);
-        System.out.println(res);
+        System.out.println(levelOrder(root));
     }
 }
