@@ -10,7 +10,7 @@ public class minWindow {
         int m = s.length();
         int ansLeft = -1, ansRight = m;
         int[] cntS = new int[128], cntT = new int[128];
-        for (char ch : t.toCharArray()) cntT[ch]++;
+        for (char c : t.toCharArray()) cntT[c]++;
         int left = 0;
         char[] ss = s.toCharArray();
         for (int right = 0; right < m; right++) {
@@ -27,7 +27,7 @@ public class minWindow {
         return ansLeft < 0 ? "" : s.substring(ansLeft, ansRight + 1);
     }
 
-    public static boolean isCovered(int[] cntS, int[] cntT) {
+    private static boolean isCovered(int[] cntS, int[] cntT) {
         for (int i = 'a'; i < 'z'; i++) {
             if (cntS[i] < cntT[i]) return false;
         }
