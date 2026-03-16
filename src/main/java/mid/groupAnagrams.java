@@ -10,11 +10,9 @@ public class groupAnagrams {
         Map<String, List<String>> map = new HashMap<>();
         for (String str : strs) {
             char[] ch = new char[26];
-            for (char c : str.toCharArray()) ch[c - 'a']++;
+            for (char s : str.toCharArray()) ch[s - 'a']++;
             String keyStr = String.valueOf(ch);
-            if (!map.containsKey(keyStr)) {
-                map.put(keyStr, new ArrayList<>());
-            }
+            if (!map.containsKey(keyStr)) map.put(keyStr, new ArrayList<>());
             map.get(keyStr).add(str);
         }
         return new ArrayList<>(map.values());
@@ -22,13 +20,7 @@ public class groupAnagrams {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        sc.nextLine();
-        String[] strs = new String[n];
-        String[] inputStrs = sc.nextLine().split(" ");
-        for (int i = 0; i < n; i++) {
-            strs[i] = inputStrs[i];
-        }
-        System.out.println(groupAnagrams(strs));
+        String[] split = sc.nextLine().split(" ");
+        System.out.println(groupAnagrams(split));
     }
 }
