@@ -23,7 +23,9 @@ public class swapPairs {
         ListNode dummy = new ListNode(0, head);
         ListNode node0 = dummy, node1 = head;
         while (node1 != null && node1.next != null) {
-            ListNode node2 = node1.next, node3 = node2.next;
+            ListNode node2 = node1.next;
+            ListNode node3 = node2.next;
+
             node0.next = node2;
             node2.next = node1;
             node1.next = node3;
