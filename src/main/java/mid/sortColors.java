@@ -14,6 +14,7 @@ public class sortColors {
             nums[i] = 2;
             if (x <= 1) nums[p1++] = 1;
             if (x == 0) nums[p0++] = 0;
+            System.out.println(Arrays.toString(nums));
         }
     }
 
