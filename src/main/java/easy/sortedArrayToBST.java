@@ -20,6 +20,11 @@ public class sortedArrayToBST {
         }
     }
 
+    private static TreeNode sortedArrayToBST(int[] nums) {
+        TreeNode root = traversal(nums, 0, nums.length - 1);
+        return root;
+    }
+
     private static TreeNode traversal(int[] nums, int left, int right) {
         if (left > right) return null;
         int mid = left + (right - left) / 2;
@@ -29,16 +34,10 @@ public class sortedArrayToBST {
         return root;
     }
 
-    private static TreeNode sortedArrayToBST(int[] nums) {
-        TreeNode root = traversal(nums, 0, nums.length - 1);
-        return root;
-    }
-
     private static List<Integer> levelOrder(TreeNode root) {
         List<Integer> res = new ArrayList<>();
-        if (root == null) return res;
         Queue<TreeNode> queue = new LinkedList<>();
-        queue.offer(root);
+        if (root != null) queue.offer(root);
         while (!queue.isEmpty()) {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
@@ -59,7 +58,6 @@ public class sortedArrayToBST {
             nums[i] = Integer.parseInt(split[i]);
         }
         TreeNode root = sortedArrayToBST(nums);
-        List<Integer> res = levelOrder(root);
-        System.out.println(res);
+        System.out.println(levelOrder(root));
     }
 }
