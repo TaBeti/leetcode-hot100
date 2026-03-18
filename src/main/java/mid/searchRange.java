@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class searchRange {
     private static int[] searchRange(int[] nums, int target) {
         int start = binarySearch(nums, target);
-        if (start == nums.length ||nums[start] != target) return new int[]{-1, -1};
+        if (start == nums.length || nums[start] != target) return new int[]{-1, -1};
         int end = binarySearch(nums, target + 1) - 1;
         return new int[]{start, end};
     }
