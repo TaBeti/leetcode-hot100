@@ -7,6 +7,7 @@ import java.util.Scanner;
  */
 public class findMedianSortedArrays {
     private static double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        //处理长度短的数组
         if (nums1.length > nums2.length) {
             int[] tmp = nums1;
             nums1 = nums2;
@@ -14,6 +15,7 @@ public class findMedianSortedArrays {
         }
         int m = nums1.length, n = nums2.length;
         int left = 0, right = m - 1;
+        //只需要对 nums1进行二分
         while (left <= right) {
             int i = left + (right - left) / 2;
             int j = (m + n + 1) / 2 - i - 2;
