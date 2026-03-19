@@ -16,8 +16,10 @@ public class spiralOrder {
         int i = 0, j = 0, di = 0;
         for (int k = 0; k < m * n; k++) {
             res.add(matrix[i][j]);
+            //标记为访问过
             matrix[i][j] = Integer.MAX_VALUE;
             int x = i + dirs[di][0], y = j + dirs[di][1];
+            //遇到边界或访问过就换方向
             if (x < 0 || x >= m || y < 0 || y >= n || matrix[x][y] == Integer.MAX_VALUE) {
                 di = (di + 1) % 4;
             }
@@ -30,7 +32,6 @@ public class spiralOrder {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int m = sc.nextInt(), n = sc.nextInt();
-        sc.nextLine();
         int[][] matrix = new int[m][n];
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
