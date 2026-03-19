@@ -7,7 +7,8 @@ import java.util.Scanner;
  */
 public class maxArea {
     private static int maxArea(int[] height) {
-        int i = 0, j = height.length - 1, res = 0;
+        int i = 0, j = height.length - 1;
+        int res = 0;
         while (i < j) {
             if (height[i] < height[j]) {
                 res = Math.max(res, (j - i) * height[i]);
@@ -22,12 +23,10 @@ public class maxArea {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        sc.nextLine();
-        int[] height = new int[n];
-        String[] inputHeight = sc.nextLine().split(" ");
-        for (int i = 0; i < n; i++) {
-            height[i] = Integer.parseInt(inputHeight[i]);
+        String[] split = sc.nextLine().split(" ");
+        int[] height = new int[split.length];
+        for (int i = 0; i < height.length; i++) {
+            height[i] = Integer.parseInt(split[i]);
         }
         System.out.println(maxArea(height));
     }
