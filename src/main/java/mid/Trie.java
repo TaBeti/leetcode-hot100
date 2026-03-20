@@ -12,7 +12,7 @@ public class Trie {
         this.next = new Trie[26];
     }
 
-    private void insert(String word) {
+    public void insert(String word) {
         Trie node = this;
         for (char c : word.toCharArray()) {
             if (node.next[c - 'a'] == null) node.next[c - 'a'] = new Trie();
@@ -21,7 +21,7 @@ public class Trie {
         node.isEnd = true;
     }
 
-    private boolean search(String word) {
+    public boolean search(String word) {
         Trie node = this;
         for (char c : word.toCharArray()) {
             node = node.next[c - 'a'];
@@ -30,7 +30,7 @@ public class Trie {
         return node.isEnd;
     }
 
-    private boolean startsWith(String prefix) {
+    public boolean startsWith(String prefix) {
         Trie node = this;
         for (char c : prefix.toCharArray()) {
             node = node.next[c - 'a'];
