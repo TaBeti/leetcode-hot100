@@ -1,5 +1,6 @@
-package mid;
+package easy;
 
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -39,14 +40,15 @@ public class mergeTwoLists {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String[] split1 = sc.nextLine().split(" ");
-        String[] split2 = sc.nextLine().split(" ");
         ListNode list1 = new ListNode(Integer.parseInt(split1[0]));
-        ListNode list2 = new ListNode(Integer.parseInt(split2[0]));
-        ListNode tmp1 = list1, tmp2 = list2;
+        ListNode tmp1 = list1;
         for (int i = 1; i < split1.length; i++) {
             tmp1.next = new ListNode(Integer.parseInt(split1[i]));
             tmp1 = tmp1.next;
         }
+        String[] split2 = sc.nextLine().split(" ");
+        ListNode list2 = new ListNode(Integer.parseInt(split2[0]));
+        ListNode tmp2 = list2;
         for (int i = 1; i < split2.length; i++) {
             tmp2.next = new ListNode(Integer.parseInt(split2[i]));
             tmp2 = tmp2.next;
