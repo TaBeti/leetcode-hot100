@@ -3,7 +3,7 @@ package easy;
 import java.util.Scanner;
 
 /**
- * 环形链表
+ * 环形链表 3-20
  */
 public class hasCycle {
     private static class ListNode {
