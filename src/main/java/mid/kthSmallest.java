@@ -5,7 +5,7 @@ import java.util.Queue;
 import java.util.Scanner;
 
 /**
- * 二叉搜索树中第k小的元素
+ * 二叉搜索树中第 K小的元素
  */
 public class kthSmallest {
     private static class TreeNode {
@@ -25,17 +25,17 @@ public class kthSmallest {
     private static int k;
     private static int res;
 
-    private static void traversal(TreeNode root) {
-        if (root == null) return;
-        traversal(root.left);
-        if (--k == 0) res = root.val;
-        traversal(root.right);
-    }
-
     private static int kthSmallest(TreeNode root, int k) {
         kthSmallest.k = k;
         traversal(root);
         return res;
+    }
+
+    private static void traversal(TreeNode node) {
+        if (node == null) return;
+        traversal(node.left);
+        if (--k == 0) res = node.val;
+        traversal(node.right);
     }
 
     private static TreeNode buildTree(String[] nodes) {
