@@ -3,7 +3,7 @@ package mid;
 import java.util.Scanner;
 
 /**
- * 跳跃游戏II
+ * 跳跃游戏 II
  */
 public class jump {
     private static int jump(int[] nums) {
