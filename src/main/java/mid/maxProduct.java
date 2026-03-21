@@ -3,7 +3,7 @@ package mid;
 import java.util.Scanner;
 
 /**
- * 乘积最大数组
+ * 乘积最大子数组
  */
 public class maxProduct {
     private static int maxProduct(int[] nums) {
