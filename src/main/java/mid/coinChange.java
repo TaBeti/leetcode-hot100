@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 /**
- * 零钱兑换
+ * 零钱兑换3.22
  */
 public class coinChange {
     private static int coinChange(int[] coins, int amount) {
