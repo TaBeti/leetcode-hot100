@@ -8,11 +8,10 @@ import java.util.Scanner;
  */
 public class findKthLargest {
     private static int findKthLargest(int[] nums, int k) {
-        int n = nums.length;
-        int targetIndex = n - k;
+        int n = nums.length, targetIndex = n - k;
         int left = 0, right = n - 1;
         while (true) {
-            int i = partition(nums, left, right);
+            int i = partition(nums, 0, n - 1);
             if (i == targetIndex) return nums[i];
             else if (i < targetIndex) left = i + 1;
             else right = i - 1;
