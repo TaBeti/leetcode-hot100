@@ -9,8 +9,8 @@ import java.util.Scanner;
  */
 public class letterCombinations {
     private static List<String> res = new ArrayList<>();
-    private static StringBuilder sb = new StringBuilder();
     private static String[] letterMap = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+    private static StringBuilder sb = new StringBuilder();
 
     private static List<String> letterCombinations(String digits) {
         backtracking(digits, 0);
@@ -26,7 +26,7 @@ public class letterCombinations {
         for (int i = 0; i < letters.length(); i++) {
             sb.append(letters.charAt(i));
             backtracking(digits, index + 1);
-            sb.deleteCharAt(sb.length() - 1);
+            sb.deleteCharAt(sb.length() -1);
         }
     }
 
