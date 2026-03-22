@@ -21,7 +21,7 @@ public class isPalindrome {
 
     private static boolean isPalindrome(ListNode head) {
         ListNode mid = middleNode(head);
-        ListNode head2 = reverseList(mid);
+        ListNode head2 = middleNode(mid);
         while (head2 != null) {
             if (head.val != head2.val) return false;
             head = head.next;
@@ -40,7 +40,7 @@ public class isPalindrome {
     }
 
     private static ListNode reverseList(ListNode head) {
-        ListNode cur = head, pre = null;
+        ListNode pre = null, cur = head;
         while (cur != null) {
             ListNode tmp = cur.next;
             cur.next = pre;
