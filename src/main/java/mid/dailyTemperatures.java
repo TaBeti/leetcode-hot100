@@ -13,7 +13,7 @@ public class dailyTemperatures {
         Stack<Integer> stack = new Stack<>();
         stack.push(0);
         for (int i = 1; i < temperatures.length; i++) {
-            if (temperatures[i] < temperatures[stack.peek()]) stack.push(i);
+            if (temperatures[i] <= temperatures[stack.peek()]) stack.push(i);
             else {
                 while (!stack.isEmpty() && temperatures[i] > temperatures[stack.peek()]) {
                     res[stack.peek()] = i - stack.peek();
