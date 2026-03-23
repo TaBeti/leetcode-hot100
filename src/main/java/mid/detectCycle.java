@@ -12,7 +12,10 @@ public class detectCycle {
         ListNode() {}
         ListNode(int val) {
             this.val = val;
-            next = null;
+        }
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
         }
     }
 
@@ -23,8 +26,8 @@ public class detectCycle {
             fast = fast.next.next;
             if (slow == fast) {
                 while (slow != head) {
-                    head = head.next;
                     slow = slow.next;
+                    head = head.next;
                 }
                 return slow;
             }
