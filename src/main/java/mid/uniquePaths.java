@@ -3,7 +3,7 @@ package mid;
 import java.util.Scanner;
 
 /**
- * 不同路径
+ * 不同路径3.24
  */
 public class uniquePaths {
     private static int uniquePaths(int m, int n) {
