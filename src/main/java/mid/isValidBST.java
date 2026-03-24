@@ -22,20 +22,19 @@ public class isValidBST {
 
     private static List<Integer> nums = new ArrayList<>();
 
-    private static void traversal(TreeNode root) {
-        if (root == null) return;
-        traversal(root.left);
-        nums.add(root.val);
-        traversal(root.right);
-    }
-
     private static boolean isValidBST(TreeNode root) {
-        nums.clear();
         traversal(root);
         for (int i = 1; i < nums.size(); i++) {
             if (nums.get(i) <= nums.get(i - 1)) return false;
         }
         return true;
+    }
+
+    private static void traversal(TreeNode node) {
+        if (node == null) return;
+        traversal(node.left);
+        nums.add(node.val);
+        traversal(node.right);
     }
 
     private static TreeNode buildTree(String[] nodes) {
