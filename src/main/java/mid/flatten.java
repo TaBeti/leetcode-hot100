@@ -1,5 +1,6 @@
 package mid;
 
+import javax.swing.tree.TreeNode;
 import java.util.*;
 
 /**
@@ -20,6 +21,10 @@ public class flatten {
         }
     }
 
+    private static void flatten(TreeNode root) {
+        dfs(root);
+    }
+
     private static TreeNode dfs(TreeNode root) {
         if (root == null) return null;
         TreeNode leftTail = dfs(root.left);
@@ -30,10 +35,6 @@ public class flatten {
             root.left = null;
         }
         return rightTail != null ? rightTail : leftTail != null ? leftTail : root;
-    }
-
-    private static void flatten(TreeNode root) {
-        dfs(root);
     }
 
     private static TreeNode buildTree(String[] nodes) {
