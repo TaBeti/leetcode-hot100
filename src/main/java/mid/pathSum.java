@@ -20,23 +20,23 @@ public class pathSum {
         }
     }
 
-    private static int res;
-
-    private static void dfs(TreeNode node, long s, int targetSum, Map<Long, Integer> cnt) {
-        if (node == null) return;
-        s += node.val;
-        res += cnt.getOrDefault(s - targetSum, 0);
-        cnt.put(s, cnt.getOrDefault(s, 0) + 1);
-        dfs(node.left, s, targetSum, cnt);
-        dfs(node.right, s, targetSum, cnt);
-        cnt.put(s, cnt.getOrDefault(s, 0) - 1);
-    }
+    private static int res = 0;
+    private static Map<Long, Integer> map = new HashMap<>();
 
     private static int pathSum(TreeNode root, int targetSum) {
-        Map<Long, Integer> cnt = new HashMap<>();
-        cnt.put(0L, 1);
-        dfs(root, 0, targetSum, cnt);
+        map.put(0L, 1);
+        dfs(root, 0, targetSum);
         return res;
+    }
+
+    private static void dfs(TreeNode node, long curSum, int targetSum) {
+        if (node == null) return;
+        curSum += node.val;
+        res += map.getOrDefault(curSum - targetSum, 0);
+        map.put(curSum, map.getOrDefault(curSum, 0) + 1);
+        dfs(node.left, curSum, targetSum);
+        dfs(node.right, curSum, targetSum);
+        map.put(curSum, map.getOrDefault(curSum, 0) - 1);
     }
 
     private static TreeNode buildTree(String[] nodes) {
@@ -68,7 +68,6 @@ public class pathSum {
         String[] split = sc.nextLine().split(" ");
         TreeNode root = buildTree(split);
         int targetSum = sc.nextInt();
-        int res = pathSum(root, targetSum);
-        System.out.println(res);
+        System.out.println(pathSum(root, targetSum));
     }
 }
