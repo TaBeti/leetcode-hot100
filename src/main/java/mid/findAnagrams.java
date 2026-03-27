@@ -12,20 +12,20 @@ public class findAnagrams {
         List<Integer> res = new ArrayList<>();
         char[] ss = s.toCharArray(), pp = p.toCharArray();
         int m = ss.length, n = pp.length;
-        int[] c1 = new int[26], c2 = new int[26];
-        for (char ch : pp) c2[ch - 'a']++;
+        int[] cntS = new int[26], cntP = new int[26];
+        for (char c : pp) cntP[c - 'a']++;
         for (int start = 0, end = 0; end < m; end++) {
-            c1[ss[end] - 'a']++;
+            cntS[ss[end] - 'a']++;
             if (end - start + 1 > n) {
-                c1[ss[start] - 'a']--;
+                cntS[ss[start] - 'a']--;
                 start++;
             }
-            if (check(c1, c2)) res.add(start);
+            if (check(cntS, cntP)) res.add(start);
         }
         return res;
     }
 
-    public static boolean check(int[] c1, int[] c2) {
+    private static boolean check(int[] c1, int[] c2) {
         for (int i = 0; i < 26; i++) {
             if (c1[i] != c2[i]) return false;
         }
