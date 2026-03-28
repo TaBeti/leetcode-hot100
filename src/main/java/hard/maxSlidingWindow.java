@@ -10,7 +10,7 @@ import java.util.Scanner;
  * 滑动窗口最大值
  */
 public class maxSlidingWindow {
-    public static class MyQueue {
+    private static class MyQueue {
         Deque<Integer> deque = new LinkedList<>();
 
         void poll(int val) {
@@ -30,8 +30,8 @@ public class maxSlidingWindow {
     private static int[] maxSlidingWindow(int[] nums, int k) {
         int len = nums.length - k + 1;
         int[] res = new int[len];
-        int idx = 0;
         MyQueue queue = new MyQueue();
+        int idx = 0;
         for (int i = 0; i < k; i++) queue.add(nums[i]);
         res[idx++] = queue.peek();
         for (int i = k; i < nums.length; i++) {
@@ -44,12 +44,10 @@ public class maxSlidingWindow {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        sc.nextLine();
-        int[] nums = new int[n];
-        String[] inputNums = sc.nextLine().split(" ");
-        for (int i = 0; i < n; i++) {
-            nums[i] = Integer.parseInt(inputNums[i]);
+        String[] split = sc.nextLine().split(" ");
+        int[] nums = new int[split.length];
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = Integer.parseInt(split[i]);
         }
         int k = sc.nextInt();
         System.out.println(Arrays.toString(maxSlidingWindow(nums, k)));
