@@ -38,20 +38,20 @@ public class sortList {
         return slow;
     }
 
-    private static ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+    private static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode dummy = new ListNode();
         ListNode cur = dummy;
-        while (list1 != null && list2 != null) {
-            if (list1.val < list2.val) {
-                cur.next = list1;
-                list1 = list1.next;
+        while (l1 != null && l2 != null) {
+            if (l1.val < l2.val) {
+                cur.next = l1;
+                l1 = l1.next;
             } else {
-                cur.next = list2;
-                list2 = list2.next;
+                cur.next = l2;
+                l2 = l2.next;
             }
             cur = cur.next;
         }
-        cur.next = list1 != null ? list1 : list2;
+        cur.next = l1 != null ? l1 : l2;
         return dummy.next;
     }
 
