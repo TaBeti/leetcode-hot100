@@ -12,7 +12,10 @@ public class canFinish {
     private static boolean dfs(int x, List<Integer>[] g, int[] colors) {
         colors[x] = 1;
         for (int y : g[x]) {
-            if (colors[y] == 1 || colors[y] == 0 && dfs(y, g, colors)) return true;
+            //有环
+            if (colors[y] == 1 || colors[y] == 0 && dfs(y, g, colors)) {
+                return true;
+            }
         }
         colors[x] = 2;
         return false;
@@ -24,8 +27,10 @@ public class canFinish {
         for (int[] p : prerequisites) g[p[1]].add(p[0]);
         int[] colors = new int[numCorses];
         for (int i = 0; i < numCorses; i++) {
+            //有环，不能完成
             if (colors[i] == 0 && dfs(i, g, colors)) return false;
         }
+        //无环，可以完成
         return true;
     }
 
