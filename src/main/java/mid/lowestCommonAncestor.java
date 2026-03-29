@@ -5,7 +5,7 @@ import java.util.Queue;
 import java.util.Scanner;
 
 /**
- * 二叉树的最近公共祖先
+ * 二叉树的最近公共祖先3.29
  */
 public class lowestCommonAncestor {
     private static class TreeNode {
