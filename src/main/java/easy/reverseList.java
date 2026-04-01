@@ -20,7 +20,7 @@ public class reverseList {
     }
 
     private static ListNode reverseList(ListNode head) {
-        ListNode cur = head, pre = null;
+        ListNode pre = null, cur = head;
         while (cur != null) {
             ListNode tmp = cur.next;
             cur.next = pre;
@@ -39,10 +39,10 @@ public class reverseList {
             tmp.next = new ListNode(Integer.parseInt(split[i]));
             tmp = tmp.next;
         }
-        ListNode reverseHead = reverseList(head);
-        while (reverseHead != null) {
-            System.out.print(reverseHead.val + " ");
-            reverseHead = reverseHead.next;
+        ListNode res = reverseList(head);
+        while (res != null) {
+            System.out.print(res.val + " ");
+            res = res.next;
         }
     }
 }
