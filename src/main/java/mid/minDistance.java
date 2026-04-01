@@ -7,9 +7,9 @@ import java.util.Scanner;
  */
 public class minDistance {
     private static int minDistance(String word1, String word2) {
-        char[] char1 = word1.toCharArray(), char2 = word2.toCharArray();
-        int m = char1.length, n = char2.length;
+        int m = word1.length(), n = word2.length();
         int[][] dp = new int[m + 1][n + 1];
+        char[] char1 = word1.toCharArray(), char2 = word2.toCharArray();
         for (int i = 0; i <= m; i++) dp[i][0] = i;
         for (int j = 0; j <= n; j++) dp[0][j] = j;
         for (int i = 1; i <= m; i++) {
