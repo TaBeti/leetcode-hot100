@@ -11,11 +11,6 @@ public class combinationSum {
     private static List<List<Integer>> res = new ArrayList<>();
     private static List<Integer> path = new ArrayList<>();
 
-    private static List<List<Integer>> combinationSum(int[] candidates, int target) {
-        backtracking(candidates, target, 0, 0);
-        return res;
-    }
-
     private static void backtracking(int[] candidates, int target, int sum, int startIndex) {
         if (sum == target) {
             res.add(new ArrayList<>(path));
@@ -29,6 +24,11 @@ public class combinationSum {
             sum -= candidates[i];
             path.remove(path.size() - 1);
         }
+    }
+
+    private static List<List<Integer>> combinationSum(int[] candidates, int target) {
+        backtracking(candidates, target, 0, 0);
+        return res;
     }
 
     public static void main(String[] args) {
