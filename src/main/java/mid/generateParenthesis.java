@@ -10,11 +10,6 @@ import java.util.Scanner;
 public class generateParenthesis {
     private static List<String> res = new ArrayList<>();
 
-    private static List<String> generateParenthesis(int n) {
-        dfs("", 0, 0, n);
-        return res;
-    }
-
     private static void dfs(String path, int left, int right, int n) {
         if (path.length() == 2 * n) {
             res.add(path);
@@ -22,6 +17,11 @@ public class generateParenthesis {
         }
         if (left < n) dfs(path + "(", left + 1, right, n);
         if (right < left) dfs(path + ")", left, right + 1, n);
+    }
+
+    private static List<String> generateParenthesis(int n) {
+        dfs("", 0, 0, n);
+        return res;
     }
 
     public static void main(String[] args) {
