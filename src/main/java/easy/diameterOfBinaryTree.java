@@ -5,7 +5,7 @@ import java.util.Queue;
 import java.util.Scanner;
 
 /**
- * 二叉树的直径
+ * 二叉树的直径4.3
  */
 public class diameterOfBinaryTree {
     private static class TreeNode {
