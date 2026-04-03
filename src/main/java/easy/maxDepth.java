@@ -22,6 +22,10 @@ public class maxDepth {
         }
     }
 
+    private static int maxDepth(TreeNode root) {
+        return getDepth(root);
+    }
+
     private static int getDepth(TreeNode node) {
         if (node == null) return 0;
         int left = getDepth(node.left);
@@ -29,13 +33,8 @@ public class maxDepth {
         return Math.max(left, right) + 1;
     }
 
-    private static int maxDepth(TreeNode root) {
-        if (root == null) return 0;
-        return getDepth(root);
-    }
-
     private static TreeNode buildTree(String[] nodes) {
-        if (nodes == null || nodes.length == 0 || nodes[0].equals(" ")) {
+        if (nodes == null || nodes.length == 0 || nodes[0].equals("null")) {
             return null;
         }
         TreeNode root = new TreeNode(Integer.parseInt(nodes[0]));
