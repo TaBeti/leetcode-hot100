@@ -6,7 +6,21 @@ import java.util.Scanner;
  * 单词搜索
  */
 public class exist {
-    private static int[][] dir = {{0, -1}, {0, 1}, {-1, 0}, {1, 0}};
+    private static int[][] dir = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+
+    private static boolean dfs(int i, int j, int k, char[][] board, char[] word) {
+        if (board[i][j] != word[k]) return false;
+        if (k == word.length - 1) return true;
+        board[i][j] = 0;
+        for (int[] d : dir) {
+            int x = i + d[0], y = j + d[1];
+            if (x >= 0 && x < board.length && y >= 0 && y < board[0].length && dfs(x, y, k + 1, board, word)) {
+                return true;
+            }
+        }
+        board[i][j] = word[k];
+        return false;
+    }
 
     private static boolean exist(char[][] board, String word) {
         char[] w = word.toCharArray();
@@ -15,20 +29,6 @@ public class exist {
                 if (dfs(i, j, 0, board, w)) return true;
             }
         }
-        return false;
-    }
-
-    private static boolean dfs(int i, int j, int k, char[][] board, char[] word) {
-        if (board[i][j] != word[k]) return false;
-        if (k == word.length - 1) return true;
-        board[i][j] = 0;
-        for (int[] d : dir) {
-            int x = i + d[0], y = j + d[1];
-            if (x >= 0 && x < board.length && y >= 0 && y < board.length && dfs(x, y, k + 1, board, word)) {
-                return true;
-            }
-        }
-        board[i][j] = word[k];
         return false;
     }
 
