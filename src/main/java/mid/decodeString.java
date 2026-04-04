@@ -22,9 +22,7 @@ public class decodeString {
             else if (Character.isDigit(c)) k = k * 10 + c - '0';
             else if (c == '[') {
                 String t = decode(s);
-                //res.repeat(t, k);
-                //String tmp = t;
-                for (int i = 0; i < k; i++) res.append(t);
+                res.repeat(t, k);
                 k = 0;
             }
             else break;
