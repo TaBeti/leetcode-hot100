@@ -10,7 +10,7 @@ public class maxProfit {
         int res = 0, minPrice = prices[0];
         for (int p : prices) {
             res = Math.max(res, p - minPrice);
-            minPrice = Math.min(p, minPrice);
+            minPrice = Math.min(minPrice, p);
         }
         return res;
     }
