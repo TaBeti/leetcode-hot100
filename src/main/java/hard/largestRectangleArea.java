@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.Stack;
 
 /**
- * 柱状图中的最大矩形
+ * 柱状图中最大的矩形
  */
 public class largestRectangleArea {
     private static int largestRectangleArea(int[] heights) {
@@ -12,22 +12,20 @@ public class largestRectangleArea {
         System.arraycopy(heights, 0, newHeights, 1, heights.length);
         newHeights[0] = 0;
         newHeights[heights.length + 1] = 0;
+
         Stack<Integer> stack = new Stack<>();
         stack.push(0);
         int res = 0;
-        for (int i = 1; i < newHeights.length; i++) {
-            if (newHeights[i] > newHeights[stack.peek()]) stack.push(i);
-            else if (newHeights[i] > newHeights[stack.peek()]) {
-                stack.pop();
-                stack.push(i);
-            } else {
+        for (int i = 0; i < newHeights.length; i++) {
+            if (newHeights[i] >= newHeights[stack.peek()]) stack.push(i);
+            else {
                 while (!stack.isEmpty() && newHeights[i] < newHeights[stack.peek()]) {
                     int mid = stack.peek();
                     stack.pop();
                     if (!stack.isEmpty()) {
                         int left = stack.peek(), right = i;
                         int w = right - left - 1, h = newHeights[mid];
-                        res = Math.max(res, w * h);
+                        res = Math.max(res, h * w);
                     }
                 }
                 stack.push(i);
