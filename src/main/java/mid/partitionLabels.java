@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * 划分字母区间
+ * 划分字母区间4.5
  */
 public class partitionLabels {
     private static List<Integer> partitionLabels(String s) {
