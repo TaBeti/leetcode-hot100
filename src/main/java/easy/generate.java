@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * 杨辉三角
+ * 杨辉三角4.5
  */
 public class generate {
     private static List<List<Integer>> generate(int numRows) {
