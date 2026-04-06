@@ -2,6 +2,9 @@ package mid;
 
 import java.util.Scanner;
 
+/**
+ * 最长公共子序列
+ */
 public class longestCommonSubsequence {
     private static int longestCommonSubsequence(String text1, String text2) {
         char[] char1 = text1.toCharArray(), char2 = text2.toCharArray();
