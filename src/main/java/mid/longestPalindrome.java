@@ -7,8 +7,8 @@ import java.util.Scanner;
  */
 public class longestPalindrome {
     private static String longestPalindrome(String s) {
-        int n = s.length();
         char[] ss = s.toCharArray();
+        int n = s.length();
         boolean[][] dp = new boolean[n][n];
         for (int i = 0; i < n; i++) dp[i][i] = true;
         int start = 0, maxLen = 1;
