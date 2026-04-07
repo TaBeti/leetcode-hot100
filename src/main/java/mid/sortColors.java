@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 /**
- * 颜色分类
+ * 颜色分类4.7
  */
 public class sortColors {
     private static void sortColors(int[] nums) {
@@ -14,7 +14,6 @@ public class sortColors {
             nums[i] = 2;
             if (x <= 1) nums[p1++] = 1;
             if (x == 0) nums[p0++] = 0;
-            System.out.println(Arrays.toString(nums));
         }
     }
 
