@@ -3,7 +3,7 @@ package mid;
 import java.util.Scanner;
 
 /**
- * 寻找重复数
+ * 寻找重复数4.7
  */
 public class findDuplicate {
     private static int findDuplicate(int[] nums) {
