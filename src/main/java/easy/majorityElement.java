@@ -3,7 +3,7 @@ package easy;
 import java.util.Scanner;
 
 /**
- * 多数元素
+ * 多数元素4.7
  */
 public class majorityElement {
     private static int majorityElement(int[] nums) {
