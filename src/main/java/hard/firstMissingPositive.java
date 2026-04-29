@@ -1,7 +1,10 @@
-package mid;
+package hard;
 
 import java.util.Scanner;
 
+/**
+ * 缺失的第一个正数
+ */
 public class firstMissingPositive {
     private static int firstMissingPositive(int[] nums) {
         int n = nums.length;
@@ -23,9 +26,7 @@ public class firstMissingPositive {
         Scanner sc = new Scanner(System.in);
         String[] split = sc.nextLine().split(" ");
         int[] nums = new int[split.length];
-        for (int i = 0; i < nums.length; i++) {
-            nums[i] = Integer.parseInt(split[i]);
-        }
+        for (int i = 0; i < nums.length; i++) nums[i] = Integer.parseInt(split[i]);
         System.out.println(firstMissingPositive(nums));
     }
 }
